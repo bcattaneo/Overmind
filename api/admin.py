@@ -1,3 +1,4 @@
 from django.contrib import admin
+from api.models import Replays
 
-# Register your models here.
+admin.site.register(Replays)

@@ -7,5 +7,4 @@ class Replays(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        #return '%s %s' % (self.title, self.base64_file)
         return (self.base64_file)
