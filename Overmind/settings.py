@@ -1,8 +1,5 @@
 import os
 
-# Define folder where to store replay files
-REPLAYS_DIR = '/home/sc2/dev/Overmind/Replays/'
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -112,3 +109,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Import local settings
+try:
+    from .local_settings import *
+except ImportError:
+    pass
