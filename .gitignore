@@ -109,3 +109,6 @@ venv.bak/
 # Replays folder
 Replays/
 !Replays/.gitkeep
+
+# Django migrations
+migrations/
