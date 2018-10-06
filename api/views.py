@@ -52,6 +52,10 @@ class GetReplayResource(Resource):
     def get_list(self, request, **kwargs):
         # OBTENER ACA overlord que viene en GET
         replay = Replays.objects.get(title='prueba7.SC2Replay')
+        now = datetime.now()
+        maximum_start_time = datetime.now() - timedelta()
+        asigned_replays = Assign.objects.filter(update__gte = maximum_start_time).value_list("id",flat=True)
+        asignable_replays = Replay.objects.exclude(id__in=asigned_replays)
         data = {'title': replay.title, 'base64_file': replay.base64_file}
         # Busco primer replay sin asignacion,
         # si encuentro, creo registro en Assign para el overlord que me lo pidio
